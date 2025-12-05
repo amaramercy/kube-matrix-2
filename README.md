@@ -83,14 +83,16 @@ Each module contains:
 - `main.tf` (resources)
 
 Examples:
-```bash
-terraform output vpc_id
-terraform output private_subnet_ids
-terraform output eks_cluster_name
-terraform output ecr_repo_urls
 
-#########################################################
-🧑‍💻 Developer Workflow
+- terraform output vpc_id
+- terraform output private_subnet_ids
+- terraform output eks_cluster_name
+- terraform output ecr_repo_urls
+
+
+---
+
+## 🧑‍💻 Developer Workflow
 
 Build Docker Image
 
@@ -104,8 +106,9 @@ Apply to EKS via kubectl
 
 Application available through ALB
 
-##########################################################
-📑 Documentation
+---
+
+## 📑 Documentation
 
 This repository includes full documentation:
 
@@ -115,8 +118,9 @@ DEPLOYMENT_GUIDE.md – Detailed step-by-step deployment
 
 DEVELOPER_GUIDE.md – Developer access guide, kubeconfig generation, ECR login, deployments
 
-##########################################################
-🧪 Testing
+---
+
+## 🧪 Testing
 
 Test steps include:
 
@@ -128,8 +132,9 @@ Testing DB connectivity from pods
 
 ECR push/pull tests
 
-##########################################################
-🛡 Security
+---
+
+## 🛡 Security
 
 IAM least privilege
 
@@ -141,8 +146,9 @@ Restricted EKS endpoint (corp IP only for Stage/Prod)
 
 DB access only from EKS pods (Stage/Prod)
 
-#########################################################
-📦 Prerequisites
+---
+
+## 📦 Prerequisites
 
 AWS CLI v2
 
@@ -154,8 +160,9 @@ IAM user/role with admin privileges
 
 SSH key (Dev only, if using Bastion)
 
-#########################################################
-🧰 Commands Summary
+---
+
+## 🧰 Commands Summary
 Initialize Terraform
 terraform init
 
@@ -168,7 +175,8 @@ terraform plan -var-file=terraform.tfvars
 Apply
 terraform apply -var-file=terraform.tfvars
 
-#########################################################
-🏁 Conclusion
+---
+
+## 🏁 Conclusion
 
 This IDP provides a highly secure, scalable, automated Kubernetes platform aligned with AWS best practices and enterprise requirements. It can be extended with CI/CD pipelines, monitoring (Grafana/Prometheus), logging (EFK), tracing, and service mesh.
