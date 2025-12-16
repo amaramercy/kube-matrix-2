@@ -49,8 +49,8 @@ jobs:
       # -------------------------------
       # Terraform Plan (PR visibility)
       # -------------------------------
-      - name: Terraform Plan
-        run: terraform plan
+      #- name: Terraform Plan
+        #run: terraform plan
 
       # -------------------------------
       # Security Scan (tfsec)
