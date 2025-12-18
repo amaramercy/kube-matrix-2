@@ -13,6 +13,6 @@ variable "lifecycle_days" {
   default = 30
 }
 
-variable "project" {}
-variable "environment" {}
+variable "environment" { type = string }
+variable "project"     { type = string }
 

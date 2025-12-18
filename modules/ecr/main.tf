@@ -3,7 +3,7 @@ locals {
 }
 
 resource "aws_ecr_repository" "this" {
-  name                 = "${local.name_prefix}"
+  name                 = var.name
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
