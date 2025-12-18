@@ -185,3 +185,16 @@ resource "aws_eks_access_policy_association" "github_actions_admin" {
   }
 }
 
+# AWS Cloudwatch Observability
+data "aws_eks_addon_version" "current" {
+  addon_name       = "amazon-cloudwatch-observability"
+  kubernetes_version = aws_eks_cluster.main.version # reference your cluster's K8s version
+  most_recent      = true
+}
+
+resource "aws_eks_addon" "cloudwatch_observability" {
+  cluster_name             = aws_eks_cluster.main.name
+  addon_name               = "amazon-cloudwatch-observability"
+  addon_version            = data.aws_eks_addon_version.current.version
+  service_account_role_arn = module.cloudwatch_observability_irsa.iam_role_arn
+}

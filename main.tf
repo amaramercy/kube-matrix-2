@@ -137,6 +137,25 @@ module "cluster_autoscaler" {
   depends_on = [module.eks]
 }
 
+#########################################
+# Cloudwatch Observability
+#########################################
+module "cloudwatch_observability_irsa" {
+  source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+  version = "~> 5.0"
 
+  role_name = "eks-cloudwatch-observability-role"
+  
+  # Attach the AWS-managed policy for CloudWatch Agent/Container Insights
+  role_policy_arns = {
+    policy = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
+  }
 
+  oidc_providers = {
+    main = {
+      provider_arn               = module.eks.oidc_provider_arn
+      namespace_service_accounts = ["amazon-cloudwatch:cloudwatch-agent", "amazon-cloudwatch:fluent-bit"]
+    }
+  }
+}
 
