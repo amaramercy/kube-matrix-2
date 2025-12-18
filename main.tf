@@ -88,6 +88,9 @@ module "eks" {
   disk_size = var.eks_disk_size
 
   aurora_db_sg_id = null
+  
+  # Pass the ARN from the IRSA module to the EKS module
+  cloudwatch_observability_role_arn = module.cloudwatch_observability_irsa.iam_role_arn
 
   tags = var.tags
   github_actions_role_arn = var.github_actions_role_arn
@@ -142,7 +145,7 @@ module "cluster_autoscaler" {
 #########################################
 module "cloudwatch_observability_irsa" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
-  version = "~> 5.0"
+  version = "~> 5.52"
 
   role_name = "eks-cloudwatch-observability-role"
   

@@ -196,5 +196,6 @@ resource "aws_eks_addon" "cloudwatch_observability" {
   cluster_name             = aws_eks_cluster.main.name
   addon_name               = "amazon-cloudwatch-observability"
   addon_version            = data.aws_eks_addon_version.current.version
-  service_account_role_arn = module.cloudwatch_observability_irsa.iam_role_arn
+  service_account_role_arn = var.cloudwatch_observability_role_arn
 }
+

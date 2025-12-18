@@ -49,3 +49,8 @@ variable "github_actions_role_arn" {
   description = "The ARN of the IAM role assumed by GitHub Actions"
   type        = string
 }
+
+variable "cloudwatch_observability_role_arn" {
+  description = "ARN of the IAM role for CloudWatch observability"
+  type        = string
+}

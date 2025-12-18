@@ -47,7 +47,7 @@ output "aws_region" {
 # ECR Outputs
 #########################################
 
-/* output "ecr_frontend_repository_url" {
+ output "ecr_frontend_repository_url" {
   description = "Frontend ECR repository URL"
   value       = module.ecr_frontend.ecr_repository_url
 }
@@ -75,7 +75,7 @@ output "ecr_database_repository_url" {
 output "ecr_database_policy_arn" {
   description = "Database ECR lifecycle policy ARN"
   value       = module.ecr_database.ecr_policy_arn
-} */
+} 
 
 
 #########################################
@@ -107,12 +107,16 @@ output "eks_node_group_name" {
   value = module.eks.node_group_name
 }
 
+# AWS Cloudwatch Observability Output
+output "cloudwatch_log_group" {
+  value = "/aws/containerinsights/${module.eks.cluster_name}/performance"
+}
 
 #########################################
 # Aurora Serverless v2 Outputs
 #########################################
 
-/* output "aurora_cluster_endpoint" {
+ output "aurora_cluster_endpoint" {
   description = "Aurora cluster endpoint (writer)"
   value       = module.database.cluster_endpoint
 }
@@ -125,7 +129,7 @@ output "aurora_reader_endpoint" {
 output "aurora_cluster_id" {
   description = "ID of the Aurora cluster"
   value       = module.database.cluster_id
-} */
+} 
 
 
 #########################################
