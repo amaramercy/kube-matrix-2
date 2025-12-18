@@ -2,7 +2,7 @@
 # Locals
 #########################################
 locals {
-  name_prefix = "${var.name_prefix}-${var.project}-${var.environment}" # compound name prefix
+  name_prefix = "${var.project}-${var.environment}" # compound name prefix
 }
 
 #########################################
