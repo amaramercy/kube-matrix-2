@@ -39,14 +39,14 @@ Bucket_prefix - This prefix is used to name the S3 bucket; combined with a suffi
 Dynamodb_table_name - stores the table name, not required to be unique.
 
 ### 2.2.	Run bootstrap-terraform.yml workflow to create S3 bucket and DynamoDB table.
-  a.	Add the below secrets to your GitHub Repository
-      a.1 AWS_ACCESS_KEY_ID
-      a.2 AWS_REGION
-      a.3 AWS_ROLE_ARN
-      a.4 AWS_SECRET_ACCESS_KEY
-  b.  Go to Actions -> Select "Bootstrap Terraform" in the list of option to the left under All Workflows.
-  c.	Click on "Run workflow"
-  d.	Verify successful run.
+  a. Add the below secrets to your GitHub Repository  
+     a.1 AWS_ACCESS_KEY_ID  
+     a.2 AWS_REGION  
+     a.3 AWS_ROLE_ARN  
+     a.4 AWS_SECRET_ACCESS_KEY  
+  b.  Go to Actions -> Select "Bootstrap Terraform" in the list of option to the left under All Workflows.  
+  c.	Click on "Run workflow"  
+  d.	Verify successful run.  
  
  
 ### 2.3.	Validate Resources created in the below naming format
@@ -173,23 +173,31 @@ Test in browser:
 ```
 `http://<external-lb-dns>`
 ```
----
+
 ##
 
 # 🏁 7. Final Verification Checklist
-Component	Status
-Terraform backend    ✅
-VPC & subnets	       ✅
-NAT, IGW, Routes	   ✅
-Security groups	     ✅
-EKS cluster	         ✅
-Node groups	         ✅
-Kubeconfig works	   ✅
-Aurora DB	           ✅
-ECR repos	           ✅
-Sample app deployed	 ✅
+- *Component Status*
+- Terraform backend    ✅
+- VPC & subnets	       ✅
+- NAT, IGW, Routes	   ✅
+- Security groups	     ✅
+- EKS cluster	         ✅
+- Node groups	         ✅
+- Kubeconfig works	   ✅
+- Aurora DB	           ✅
+- ECR repos	           ✅
+- Sample app deployed	 ✅
 
+---
 # 🎉 8. Deployment Complete!
 You now have a fully functional AWS + Kubernetes Internal Developer Platform ready for application deployments, CI/CD integration, monitoring, and more.
+
+---
+
+# 🗑️ 9. Cleanup
+`kubectl delete namespace sanity-test`
+
+The above command will delete the pods, deployment and service inside the sanity-test namespace including the namespace.
 
 ---
