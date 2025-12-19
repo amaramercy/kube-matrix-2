@@ -74,11 +74,13 @@ Navigate to environment
 cd envs/
 
 Set variables (dev.tfvars)
+```
 component              = "vpc"
 vpc_cidr               = "10.0.0.0/16"
 public_subnet_cidrs    = ["10.0.1.0/24","10.0.2.0/24"]
 private_subnet_cidrs   = ["10.0.101.0/24","10.0.102.0/24"]
-
+...
+```
 
 # ☸ 4. Deploy the modules - VPC, Subnets, NATs, IGw, Security Groups, EKS, ECR, Aurora MySQL, IAM Role
   a. Terraform Plan  
